@@ -37,7 +37,7 @@ export function App (){
   return (
     <div className="App">
       <Header />
-      {(pokemons.list.length > 0) ? <PokemonContainer  list={pokemons.list} /> : <div></div> }
+      { Boolean(pokemons.list?.length) ? <PokemonContainer  list={pokemons.list} /> : <div className='loader'> Loading... </div> }
     </div>
   )
 }

@@ -39,14 +39,14 @@ export function PokemonContainer ( { list }: PokemonsType ){
     let Button = () => {
         return (
             <div>
-                <h1>&#x2193; Generate a Random Pokemon &#x2193;</h1>
-                <button id='buttonText' onClick={buttonHandle}> Click Here </button>
+                <h1 className='title'>&#x2193; Generate a Random Pokemon &#x2193;</h1>
+                <button id='callButton' onClick={buttonHandle}> Click Here </button>
             </div>
         )
     }
 
     return (
-        (pokemon.name) ? <Card/> : <Button/>
+        Boolean(pokemon.name) ? <Card/> : <Button/>
     )
 }
 
