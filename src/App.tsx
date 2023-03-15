@@ -4,7 +4,7 @@ import { Header } from './Components/Header'
 import { PokemonContainer } from './Components/PokemonContainer'
 import './App.css';
 
-export const POKEMON_COUNT:number= 1281;
+export const POKEMON_COUNT: number = 1281;
 
 export interface PokemonType {
   name: string;
@@ -12,22 +12,22 @@ export interface PokemonType {
   image: string;
 }
 
-export interface PokemonsType { 
-  list: Array<PokemonType> 
-} ;
+export interface PokemonsType {
+  list: Array<PokemonType>
+};
 
-export function App (){
+export function App() {
 
   const [pokemons, setPokemons] = useState({
     list: []
   });
 
   const getPokemons = async () => {
-      const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=' + POKEMON_COUNT.toString() );
-      const data = await response.json();
-      setPokemons({
-        list: data.results
-      });
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=' + POKEMON_COUNT.toString());
+    const data = await response.json();
+    setPokemons({
+      list: data.results
+    });
   };
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export function App (){
   return (
     <div className="App">
       <Header />
-      { Boolean(pokemons.list?.length) ? <PokemonContainer  list={pokemons.list} /> : <div className='loader'> Loading... </div> }
+      {Boolean(pokemons.list?.length) ? <PokemonContainer list={pokemons.list} /> : <div className='loader'> Loading... </div>}
     </div>
   )
 }
